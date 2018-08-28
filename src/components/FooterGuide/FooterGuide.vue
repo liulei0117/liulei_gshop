@@ -1,4 +1,3 @@
-
 <style lang="stylus" rel="stylesheet/stylus">
   @import "../../common/stylus/mixins.styl"
   .footer_guide  //footer
@@ -8,7 +7,7 @@
     left 0
     right 0
     bottom 0
-    background-color #fff
+    background-color #111;
     width 100%
     height 50px
     display flex
@@ -18,43 +17,78 @@
       text-align center
       flex-direction column
       align-items center
-      margin 5px
-      color #999999
+      margin 0px
+      color: rgba(255, 250, 250, 0.6);
       &.on
-        color #02a774
+        color rgb(226,181,2)
       span
         font-size 12px
-        margin-top 2px
-        margin-bottom 2px
+        margin-top 4px
+        margin-bottom 0
         .iconfont
           font-size 22px
+        .iconname{
+          display flex;
+          width: 20px;
+          height: 22px;
+          .img_{
+            width 100%;
+            height 100%;
+          }
+        }
+      .item_icon{
+        margin-top 7px;
+      }
 </style>
 
 <template>
   <div class="footer_guide">
-    <span class="guide_item" :class="{on: '/msite'===$route.path}" @click="goTo('/msite')">
+    <span class="guide_item" :class="{on: '/Msite/nav_1'===$route.path}" @click="goTo('/Msite/nav_1')">
       <span class="item_icon">
-        <i class="iconfont icon-waimai"></i>
+        <i class="iconname">
+          <img v-if="'/Msite/nav_1'===$route.path" class="img_" src="./images/index_178.png" alt="">
+          <img v-else class="img_" src="./image/index_8.png" alt="">
+        </i>
       </span>
-      <span>外卖</span>
+      <span>首页</span>
     </span>
-    <a href="javascript:;" class="guide_item" :class="{on: '/search'===$route.path}" @click="goTo('/search')">
+    <a href="javascript:;" class="guide_item" :class="{on: '/classification'===$route.path}" @click="goTo('/classification')">
       <span class="item_icon">
-        <i class="iconfont icon-search"></i>
+        <i class="iconname">
+          <img v-if="'/classification'===$route.path" class="img_" src="./images/index_182.png" alt="">
+          <img v-else class="img_" src="./image/index_9.png" alt="">
+        </i>
       </span>
-      <span>搜索</span>
+      <span>分类</span>
     </a>
-    <a href="javascript:;" class="guide_item" :class="{on: '/order'===$route.path}" @click="goTo('/order')">
+    <a href="javascript:;" class="guide_item" :class="{on: '/details'===$route.path}" @click="goTo('/details')">
+      <!--Shopping_Cart-->
       <span class="item_icon">
-        <i class="iconfont icon-dingdan"></i>
+        <i class="iconname">
+          <img v-if="'/details'===$route.path" class="img_" src="./images/index_186.png" alt="">
+          <img v-else class="img_" src="./image/index_10.png" alt="">
+        </i>
       </span>
-      <span>订单</span>
+      <span>购物车</span>
     </a>
     <a href="javascript:;" class="guide_item" :class="{on: '/profile'===$route.path}" @click="goTo('/profile')">
       <span class="item_icon">
-        <i class="iconfont icon-geren"></i>
+        <i class="iconname">
+          <img v-if="'/profile'===$route.path" class="img_" src="./images/index_190.png" alt="">
+          <img v-else class="img_" src="./image/index_11.png" alt="">
+        </i>
       </span>
-      <span>我的</span>
+      <span>购物分享</span>
+    </a>
+    <!--<a href="javascript:;" class="guide_item" :class="{on: '/Personal_Center'===$route.path}" @click="goTo('/Personal_Center')">-->
+    <a href="javascript:;" class="guide_item" :class="{on: '/Personal_Center'===$route.path}" @click="goTo('/Personal_Center')">
+      <span class="item_icon">
+        <i class="iconname">
+          <img v-if="'/Personal_Center'===$route.path" class="img_" src="./images/index_195.png" alt="">
+          <img v-else class="img_" src="./image/index_12.png" alt="">
+        </i>
+      </span>
+      <span>个人中心</span>
     </a>
   </div>
 </template>
@@ -63,7 +97,7 @@
   export default {
     methods: {
       goTo (path) {
-        this.$router.replace(path)
+        this.$router.replace(path);
       }
     }
   }
